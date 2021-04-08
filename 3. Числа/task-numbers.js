@@ -1,21 +1,21 @@
 //Получить число Pi из Math и округлить его до двух знаков после точки
 let num = Math.PI;
-alert( num.toFixed(2) );
+console.log( num.toFixed(2) ); // 3.14
 
 
 //Найти максимальное и минимальное значения из представленного ряда 10, 17, 5, 12, 15, 99, 1
-alert( Math.max(10, 17, 5, 12, 15, 99, 1) );
-alert( Math.min(10, 17, 5, 12, 15, 99, 1) );
+console.log( Math.max(10, 17, 5, 12, 15, 99, 1) ); // 99
+console.log( Math.min(10, 17, 5, 12, 15, 99, 1) ); // 1
 
 
 //С помощью Math.random:
 //получить случайное число и округлить его до двух цифр после запятой
-alert( Math.random().toFixed(2) );
+console.log( Math.random().toFixed(2) ); // 0.15
 
 
 //получить случайное число от 0 до Х
-Math.random() * (x - 0);
+Math.random() * (x - 0); 
 
 
 //Получить число из строки '100$'
-Number.parseInt('100$');
+console.log(Number.parseInt('100$')); // 100
