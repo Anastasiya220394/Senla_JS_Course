@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>TODO app</title>
+    <link rel="stylesheet" href="./CSS/reset.css">
+    <link rel="stylesheet" href="./CSS/style.css">
+  </head>
+<body>
+<div class="wrapper">
+  <div class="img_background"></div>
+</div>
+<header>
+  <div class="header">
+    <img class="logo" src="./images/Color.svg" alt="Логотип Сенлы">
+    <div class="header__search">
+    <div class="search_icon" aria-hidden="true"></div>
+    <input class="search_input" type="search" placeholder="Search task for to do">
+    </div>
+  </div>
+</header>
+<main>
+    <section class="tabs">
+      <ul class="tabs__buttons">
+        <li class="tab tab--all tab--current">
+          <button class="">All</button>
+        </li>
+        <li class="tab tab--active">
+          <button class="">Active</button>
+        </li>
+        <li class="tab tab--done">
+          <button class="">Done</button>
+        </li>
+      </ul>
+    </section>
+    <section class="area__tasks">
+      <form class="add_task">
+      <p class="notice">New task</p>
+      <textarea type="text" class="add_task__textarea"></textarea>
+      <div class="add_task__div">
+      <input type="button" class="add_task__button" onclick = "displayTasks()" value="ADD">
+      </div>
+    </form>
+    </section>
+    <section class="tasks">
+      <div class="tasks__wrapper">
+        <ul class="tasks__list" onclick= "crossText(event)">
+          <!--тут добавляются задачи-->
+        </ul>
+      </div>
+    </section>
+</main>
+  <script src="../node_modules/@babel/polyfill/dist/polyfill.js"></script>
+  <script src="./scripts/index.js"></script>
+  <script src="https://cdn.polyfill.io/v1/polyfill.js?Element.prototype.closest"></script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es5"></script>
+</body>
+</html>
