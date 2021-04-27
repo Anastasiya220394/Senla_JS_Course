@@ -12,12 +12,14 @@ console.log(returnLastItem(myArray)); // 15
 //Создать такую функцию, которая принимала бы массив [1,3,6], а возвращала новый массив с дублированными элементами [1,3,6,1,3,6].
 
 let myArray2 = [1,3,6];
+let arr = [];
 
 function returnNewArray(arr) {
-    return myArray2.concat(myArray2);
+	arr = myArray2.concat(myArray2);
+   return arr;
 }
 
-console.log(myArray2.concat(myArray2)); // [1, 3, 6, 1, 3, 6]
+console.log(returnNewArray(arr)); // [1, 3, 6, 1, 3, 6]
 
 
 //Создать такую функцию, которая принимала бы любое число, а возвращала массив, заполненный числами от 1 до n.
@@ -35,7 +37,10 @@ console.log(number(10)); // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
 //Создать такую функцию, которая принимала бы любое число массивов и удаляла из каждого массива первый элемент, а возвращала массив оставшихся значений ([1, 2, 3], ["x", "y", "z"] → [[2, 3], ["y", "z"]])"
 
-function getAll() {
+let arr1 = [1, 2, 3]; 
+let arr2 = ["x", "y", "z"];
+
+function getAll(arr1,arr2) {
   let result = [];
   for (let i = 0; i < arguments.length; i++) {
     arguments[i].shift();
@@ -44,35 +49,42 @@ function getAll() {
   return result;
 }
 
-console.log(getAll([1, 2, 3], ["x", "y", "z"])); // [[2, 3], ["y", "z"]]
+console.log(getAll(arr1,arr2)); // [[2, 3], ["y", "z"]]
 
 
 
 //Создать функцию, которая упорядочит буквы в строке "екважбигёзд" в алфавитном порядке и возвратит строку в обратном порядке ("кизжёедгвба").
 
 let str = "екважбигёзд";
-let collator = new Intl.Collator();
 
 function alphabetize(str) {
-
- return str.split('').sort(alphabet).reverse().join('');
+  
+  return str.split('').sort(alphabetSort).reverse().join('');
 }
 
-function alphabet(a, b) {
-
-  return collator.compare(a, b);
+function alphabetSort(a, b) {
+  let aCode = a.toLowerCase().replace('ё','е'+ String.fromCharCode(1110));
+  let bCode = b.toLowerCase().replace('ё','е'+ String.fromCharCode(1110));
+  if (aCode > bCode)
+    return 1;
+  if (aCode < bCode)
+    return -1;
+  else
+    return 0;
 }
 
 console.log(alphabetize(str)); // "кизжёедгвба"
 
 
 
+
 //Используя функцию, отсортировать массив [5, 2, -1, 6, 9, -9, 3] в обратном порядке.
 
 let myArray = [5, 2, -1, 6, 9, -9, 3];
-let reversed = myArray.reverse();
 
-console.log(reversed); // [3, -9, 9, 6, -1, 2, 5]
+myArray.sort((a, b) => b - a);
+
+console.log(myArray); // [9, 6, 5, 3, 2, -1, -9]
 
 //Создать функцию, которая принимает 3 аргумента: любой произвольный массив начальный номер элемента в массиве конечный номер
 
@@ -173,7 +185,6 @@ const services = [{service: "service1", executionTime: 56},
                   {service: "service10", executionTime: 42}];
 
 
-
 services.sort(function(a, b) {
   if(a.executionTime > b.executionTime) {
     return 1;
@@ -184,10 +195,7 @@ services.sort(function(a, b) {
   }
 });
  
- 
 let newServices = services.slice();
- newServices = newServices.sort(function(a, b){});
- 
  
 function isBigEnough(newServices) {
  return newServices.executionTime > 20 && newServices.executionTime < 60;

@@ -6,8 +6,11 @@ console.log( string[string.length - 1] ); // 'e'
 
 
 //Сделать первую и последнюю буквы в верхнем регистре
-console.log( string[0].toUpperCase() ); // 'S'
-console.log( string[string.length - 1].toUpperCase() ); //'E'
+
+let newString = string;
+newString = newString[0].toUpperCase() + newString.slice(1, newString.length-1) + newString[newString.length-1].toUpperCase();
+  
+console.log(newString); // "String test examplE"
 
 
 //Найти положение слова string в строке

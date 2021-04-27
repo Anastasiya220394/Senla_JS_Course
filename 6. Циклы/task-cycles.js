@@ -56,17 +56,14 @@ for (i = 0; i < 20; i++) {
 let string = 'теперь я мастер циклов javascript';
 let string2 = '';
 
-for (let i = 0; i < string.length; i++) {
-    if (i === 0){
-    string2 += string[i].toUpperCase();
-    } else if (string[i] === ' ') {
-        string2 += string[i];
-        string2 += string[i + 1].toUpperCase();
-        i++;
-    }
-      else { string2 += string[i];}
-}
 
-string2 = string2.replace(/\s+/g, '');
+for (let i = 0; i < string.length; i++) {
+  if (string[i] === ' ') continue;
+    if (string[i-1] === ' ' || !string[i-1]) {
+        string2 += string[i].toUpperCase();
+    }
+      else { string2 += string[i];
+    }
+}
 
 console.log(string2); // "ТеперьЯМастерЦикловJavascript"
